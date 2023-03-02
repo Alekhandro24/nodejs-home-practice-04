@@ -38,6 +38,11 @@ const productSchema = Schema(
       // регулфрні вирази через
       match: codeRegexp,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true }
 );

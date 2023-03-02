@@ -8,6 +8,8 @@ const logger = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 
+const authRouter = require("./routes/api/auth");
+const usersRouter = require("./routes/api/users");
 const productRouter = require("./routes/api/products");
 
 const app = express();
@@ -18,6 +20,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/auth", authRouter);
+app.use("/api/users", usersRouter);
 app.use("/api/products", productRouter);
 
 app.use((req, res) => {
